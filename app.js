@@ -27,6 +27,9 @@ app.use("/user", UserRoute);
 app.use("/api/payment", paymentRoute);
 
 
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
 
 app.listen(Port, ()=>{
     console.log(`Server Run On Port ${Port}`);
