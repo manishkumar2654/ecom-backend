@@ -14,6 +14,9 @@ const Port=process.env.PORT || 8080;
 mongoose.connect(process.env.DBCON).then(()=>{
     console.log("DB Connected Succefully!")
 })
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
 app.use(cors());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded())
@@ -27,9 +30,7 @@ app.use("/user", UserRoute);
 app.use("/api/payment", paymentRoute);
 
 
-app.get("/", (req, res) => {
-  res.send("Backend is running!");
-});
+
 
 app.listen(Port, ()=>{
     console.log(`Server Run On Port ${Port}`);
